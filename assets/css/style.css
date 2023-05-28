@@ -1,0 +1,547 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+/*form styles*/
+#msform {
+    width: 1241px;
+    font-family: "DM Sans", sans-serif;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+}
+
+#msform fieldset {
+    background: #f3f7f8;
+    border: 0 none;
+    border-radius: 3px;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+    text-align: left;
+    /*stacking fieldsets above each other*/
+    position: absolute;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+/*inputs*/
+#msform input,
+#msform textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+/*buttons*/
+#msform .action-button {
+    width: auto;
+    background: #006c74;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 5px;
+}
+
+.btn-action {
+    width: auto;
+    background: #006c74;
+    color: white;
+    border: 0 none;
+    font-weight: 300;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0px 5px;
+    border-radius: 5px;
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+
+/*headings*/
+.fs-title {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/*progressbar*/
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+
+#progressbar li {
+    list-style-type: none;
+    color: #297177;
+    text-transform: uppercase;
+    font-size: 15px;
+    width: 14%;
+    float: left;
+    position: relative;
+}
+
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 72px;
+    line-height: 55px;
+    display: block;
+    font-size: 36px;
+    color: #333;
+    background: white;
+    border-radius: 100px;
+    margin: 0 auto 5px auto;
+    border: 8px solid #afafaf;
+}
+
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #afafaf;
+    position: absolute;
+    left: -50%;
+    top: 32px;
+    z-index: -1;
+    /*put it behind the numbers*/
+}
+
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before {
+    background: #ffffff;
+    color: black;
+    border: 8px solid #006c74;
+}
+
+#progressbar li.active:after {
+    background: #ffffff;
+    color: black;
+    border: 4px solid #006c74;
+}
+
+.fs-head {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.fs-head img {
+    width: 50px;
+    height: auto;
+}
+
+.center {
+    text-align: center;
+    margin-top: 20px;
+}
+.rt{
+    text-align: end;
+}
+.addAnother {
+    text-align: center;
+    padding: 10px;
+    border: 1px dotted #FF5E59;
+}
+
+.addAnother span {
+    color: #FF5E59;
+}
+
+.addAnother :hover {
+    background-color: #086972;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.8) url("/assets/images/loader.gif") center no-repeat;
+}
+
+body.loading {
+    overflow: hidden;
+}
+
+/* Make spinner image visible when body element has the loading class */
+body.loading .overlay {
+    display: block;
+}
+
+.generatedBtns {
+    display: flex;
+
+}
+
+#generatedDesc {
+    margin-top: 10px;
+    margin-bottom: 1rem;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.select2-container .select2-selection--single {
+    height: 50px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 10px !important;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding-top: 10px !important;
+}
+
+.select2-container {
+    width: 100% !important;
+}
+
+.generateNew {
+    background-color: #fe5f58;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 20px;
+
+}
+
+.left {
+    text-align: left;
+}
+
+.notice {
+    margin-bottom: 20px;
+}
+
+.generatedOutput {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.summaryControls {
+    display: flex;
+}
+
+.cvDetailSecPersonal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.summaryControlsBtn {
+    width: auto;
+    background: #006c74;
+    color: white;
+    border: 0 none;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 15px 20px;
+    margin: 5px 5px;
+    border-radius: 5px;
+}
+
+.chkbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.summaryControlsFinal {
+    display: flex;
+    flex-direction: column;
+}
+
+.thumb-image {
+    width: 128px;
+    height: auto;
+}
+
+input.invalid {
+    border-color: #ff7a7a !important;
+}
+
+.validation_error {
+    margin: .4em 0 1em;
+    color: #ff7a7a;
+    font-size: .7em;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+}
+
+input[type="button" i]:disabled {
+    border: 1px solid #999999 !important;
+    background-color: #cccccc !important;
+    color: #666666 !important;
+}
+
+/* Template */
+
+.dp {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#dp {
+    margin: 30px 10px 30px 10px;
+    width: 150px;
+    height: auto;
+}
+
+.left {
+    background-color: #383839;
+    color: #fff;
+}
+
+.personalInfo h3 {
+    border-bottom: 2px solid #fff;
+    margin-left: 25px;
+    margin-top: 50px;
+}
+
+.personalDetails ul {
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.personalDetails ul li {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.fa {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.skill h3 {
+    border-bottom: 2px solid #fff;
+    margin-left: 25px;
+    margin-top: 50px;
+}
+
+.skillDetails {
+    margin: 25px 70px 25px 40px;
+}
+
+.progress-bar {
+    background-color: #fff;
+}
+
+.skill {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.links h3 {
+    border-bottom: 2px solid #fff;
+    margin-left: 25px;
+    margin-top: 50px;
+}
+
+.links ul {
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.links ul li {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.language h3 {
+    border-bottom: 2px solid #fff;
+    margin-left: 25px;
+    margin-top: 50px;
+}
+
+.language ul {
+    list-style: disc;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.language ul li {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.right {
+    color: #000;
+    padding: 50px;
+}
+
+.name h1 {
+    font-weight: bold;
+}
+
+.experienceHead ul {
+    list-style: none;
+    margin-bottom: 6px;
+    padding: 0;
+}
+
+.educationHead ul {
+    list-style: none;
+    margin-bottom: 6px;
+    padding: 0;
+}
+
+.experienceHead ul li {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.educationHead ul li {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.experienceHead ul li i {
+    color: #fff;
+    background: #000;
+    border-radius: 100px;
+    padding: 8px;
+}
+
+.educationHead ul li i {
+    color: #fff;
+    background: #000;
+    border-radius: 100px;
+    padding: 8px;
+
+}
+
+.experienceHead ul li .fa {
+    margin-right: 15px;
+}
+
+.educationHead ul li .fa {
+    margin-right: 15px;
+}
+
+.experienceHead {
+    border-bottom: 2px solid #6c6d70;
+    margin-bottom: 15px;
+}
+
+.educationHead {
+    border-bottom: 2px solid #6c6d70;
+    margin-bottom: 15px;
+}
+
+h6 {
+    font-weight: 600;
+}
+
+.nameDesignation {
+    margin-bottom: 50px;
+}
+
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: 50px auto;
+}
+
+.avatar-upload .avatar-edit {
+    position: absolute;
+    right: 12px;
+    z-index: 1;
+    top: 10px;
+}
+
+.avatar-upload .avatar-edit input {
+    display: none;
+}
+
+.avatar-upload .avatar-edit input+label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+}
+
+.avatar-upload .avatar-edit input+label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+}
+
+.avatar-upload .avatar-edit input+label:after {
+    content: "\f040";
+    font-family: "FontAwesome";
+    color: #757575;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+
+.avatar-upload .avatar-preview {
+    width: 192px;
+    height: 192px;
+    position: relative;
+    border-radius: 100%;
+    border: 6px solid #f8f8f8;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-upload .avatar-preview>div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.modal-body a img {
+    width: 256px;
+    height: auto;
+}
